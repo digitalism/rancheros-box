@@ -65,18 +65,12 @@
         "vagrantfile_template": "./Vagrantfile"
       },
       {
-        "type": "atlas",
-        "only": ["virtualbox-iso"],
-        "artifact": "MatthewHartstonge/RancherOS",
-        "artifact_type": "vagrant.box",
-        "metadata": {
-          "provider": "virtualbox",
-          "version": "{{user `vm_version`}}{{user `version_prerelease_suffix`}}"
-        }
+        "type": "vagrant-cloud",
+        "box_tag": "mhdali/rancheros-salt",
+        "access_token": "{{user `atlas_token`}}",
+        "version": "{{user `vm_version`}}",
+        "version_description": "{{user `vm_description`}}"
       }
     ]
-  ],
-  "push": {
-    "name": "MatthewHartstonge/RancherOS"
-  }
+  ]
 }
