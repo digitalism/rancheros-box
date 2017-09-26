@@ -32,21 +32,11 @@
         "--manifest",
         "--vsys", "0",
         "--description", "{{user `vm_description`}}",
-        "--version", "{{user `vm_version`}}{{user `version_prerelease_suffix` }}"
+        "--version", "{{user `vm_version`}}{{user `version_prerelease_suffix`}}"
       ],
       "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "1024"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
+        [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
       ]
     }
   ],
