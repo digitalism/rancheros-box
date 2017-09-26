@@ -1,9 +1,9 @@
 {
   "variables": {
-    "iso_md5_checksum": "0c13ace5c4b2d18aca1337c2bddde568",
+    "iso_md5_checksum": "{{env `RANCHEROS_ISO_MD5_CHECKSUM`}}",
     "version_prerelease_suffix": "",
     "vm_description": "A simplified Linux distribution built from containers, for containers",
-    "vm_version": "1.0.1"
+    "vm_version": "{{env `RANCHEROS_VERSION`}}"
   },
   "builders": [
     {
