@@ -32,7 +32,7 @@
         "y<enter>",
         "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>"
       ],
-      "shutdown_command": "sudo shutdown -h now",
+      "shutdown_command": "sudo shutdown -H now",
       "export_opts": [
         "--manifest",
         "--vsys", "0",
