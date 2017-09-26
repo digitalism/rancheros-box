@@ -2,7 +2,7 @@
   "variables": {
     "iso_md5_checksum": "{{env `RANCHEROS_ISO_MD5_CHECKSUM`}}",
     "version_prerelease_suffix": "",
-    "vm_description": "A simplified Linux distribution built from containers, for containers",
+    "vm_description": "RancherOS with SaltStack as container",
     "vm_version": "{{env `RANCHEROS_VERSION`}}"
   },
   "builders": [
