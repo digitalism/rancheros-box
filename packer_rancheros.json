@@ -59,8 +59,7 @@
         "type": "vagrant",
         "compression_level": 9,
         "keep_input_artifact": false,
-        "output":"RancherOS_{{user `vm_version`}}.box",
-        "vagrantfile_template": "./Vagrantfile"
+        "output":"RancherOS_{{user `vm_version`}}.box"
       },
       {
         "type": "vagrant-cloud",
