@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require_relative 'vagrant_rancheros_guest_plugin.rb'
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -12,7 +14,10 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "MatthewHartstonge/RancherOS"
+  config.vm.box = "rancher-test"
+
+  # The guest OS that will be running within this machine. This defaults to :linux
+  config.vm.guest = :linux
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -26,12 +31,13 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "172.19.9.10"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
   # config.vm.network "public_network"
+  config.vm.hostname = "rancher"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -54,6 +60,7 @@ Vagrant.configure("2") do |config|
      # vb.gui = true
      # Customize the amount of memory on the VM:
      vb.memory = "1024"
+     vb.gui = false
   end
   #
   # View the documentation for the provider you are using for more
