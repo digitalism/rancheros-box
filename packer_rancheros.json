@@ -3,7 +3,7 @@
     "vm_version": "",
     "iso_md5_checksum": "",
     "version_prerelease_suffix": "",
-    "vm_description": "RancherOS from rancheros.iso with Alpine console (without VirtualBox Guest Additions). [Packer GitHub Source](https://github.com/chriswayg/rancheros-box/tree/basic)"
+    "vm_description": ""
   },
   "builders": [
     {
