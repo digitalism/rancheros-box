@@ -6,3 +6,5 @@ output-virtualbox-iso/
 *.box
 # Vagrant files
 .vagrant/
+
+production/
