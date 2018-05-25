@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-iso_md5_checksum='b0e3e198a12a2ae8efe89f5167655879'
-vm_description='A simplified Linux distribution built from containers, for containers'
-vm_version='1.0.0'
+vm_version='1.3.0'
+iso_md5_checksum='1ee0a4abb95e1684ca1aa7c66218398d'
+vm_description='RancherOS with Alpine console (without VirtualBox Guest Additions). [Packer GitHub Source](https://github.com/chriswayg/rancheros-box/tree/basic)'
+vagrantcloud_token='pVOi8vcIvCZDkQ.atlasv1.oeowDxv73MPyW74jBQTjzZ38DeU3SI2k57PDxGEzRoLvmzzeFkt2fv4QWgomiZdPZu0'
 packer build \
+    -var "vm_version=${vm_version}" \
     -var "iso_md5_checksum=${iso_md5_checksum}" \
     -var "vm_description=${vm_description}" \
-    -var "vm_version=${vm_version}" \
+    -var "vagrantcloud_token=${vagrantcloud_token}" \
     "packer_rancheros.json"
