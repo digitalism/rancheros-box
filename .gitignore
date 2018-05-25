@@ -1,10 +1,14 @@
-## IDE files
-.idea/
-## Packer artifacts
+# OS files
+.DS_Store
+
+# Packer artifacts
 packer_cache/
 output-virtualbox-iso/
 *.box
+
 # Vagrant files
 .vagrant/
 
+# Private files
 production/
+test/
