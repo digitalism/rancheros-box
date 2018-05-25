@@ -31,7 +31,7 @@
         "y<enter>",
         "<wait5>",
         "y<enter>",
-        "<wait10><wait10><wait10><wait10><wait10><wait10>"
+        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10>"
       ],
       "shutdown_command": "sudo shutdown -P now",
       "export_opts": [
@@ -41,18 +41,8 @@
         "--version", "{{user `vm_version`}}"
       ],
       "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "1024"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
+        [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
       ]
     }
   ],
