@@ -1,16 +1,24 @@
 # RancherOS Box
 
-Seeks to keep up to date with RancherOS releases.
+Easy to to keep up to date with RancherOS releases. If you do not see the latest release on Vagrant Cloud, just build your own by following the steps below.
 
 The default SSH Key has been set up for `vagrant ssh` to allow hacking via the the shell script provisioner.
 
-Box versions will match the OS version, with `alpha/beta/pre` reserved for hacking
-
-## Please Note
-Consider this as a hacking machine - RancherOS with Buzybox doesn't hold state, so is a little hard to configure when, on restart, will wipe anything configured. I did think about implementing a different shell in order to keep state, but figured it better to keep it as close to the real thing as possible. That is, configurable on top of once up.
 
 ## How to build
-Just replace your vagrant cloud token with the vagrantcloud_token variable.
+
 ```
-packer build -var 'iso_md5_checksum=c69cae528b935cea3cee136ae3a086bb' -var 'vm_version=1.1.0' -var 'vagrantcloud_token=XXXXXX' packer_rancheros.json
+git clone https://github.com/chriswayg/rancheros-box.git
+cd rancheros-box
 ```
+
+- Customize `RancherOS-common` with your Vagrant Cloud box name and token and adjust your RancherOS console and description as needed.
+- Create a new box on Vagrant Cloud and choose the box name as set in `RancherOS-common`
+- Possibly create a new file such as `RancherOS-1.5.0` with the latest version number and md5 hash based on info from:
+  - [rancher/os releases](https://github.com/rancher/os/releases/)` iso-checksums.txt`
+- Launch the build script with the applicable version number:
+```
+./build.sh 1.3.0
+```
+
+For a local build, just...
