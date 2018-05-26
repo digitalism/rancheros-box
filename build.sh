@@ -3,7 +3,13 @@
 set -o errexit
 set -o nounset
 
-source "RancherOS-common"
+if [ -f "production/RancherOS-common" ]
+then
+	source "production/RancherOS-common"
+else
+	source "RancherOS-common"
+fi
+
 source "RancherOS-${1}"
 
 packer build \
