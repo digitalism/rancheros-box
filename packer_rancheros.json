@@ -53,7 +53,8 @@
         "compression_level": 9,
         "keep_input_artifact": false,
         "output":"RancherOS_{{user `vm_version`}}.box",
-        "vagrantfile_template": "./Vagrantfile"
+        "vagrantfile_template": "./Vagrantfile",
+        "include": "./vagrant_rancheros_guest_plugin.rb"
       },
       {
         "type": "vagrant-cloud",

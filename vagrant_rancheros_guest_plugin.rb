@@ -10,6 +10,31 @@ IPAddr.class_eval do
 end
 
 module VagrantPlugins
+  module GuestRancherOS
+    class Guest < Vagrant.plugin("2", :guest)
+      # Name used for guest detection
+      GUEST_DETECTION_NAME = "rancheros".freeze
+
+      def detect?(machine)
+        machine.communicate.test <<-EOH.gsub(/^ */, '')
+          if test -r /etc/os-release; then
+            source /etc/os-release && test x#{self.class.const_get(:GUEST_DETECTION_NAME)} = x$ID && exit
+          fi
+          if test -x /usr/bin/lsb_release; then
+            /usr/bin/lsb_release -i 2>/dev/null | grep -qi #{self.class.const_get(:GUEST_DETECTION_NAME)} && exit
+          fi
+          if test -r /etc/issue; then
+            cat /etc/issue | grep -qi #{self.class.const_get(:GUEST_DETECTION_NAME)} && exit
+          fi
+          exit 1
+        EOH
+      end
+    end
+  end
+end
+
+
+module VagrantPlugins
   module GuestLinux
     class Plugin < Vagrant.plugin("2")
       guest_capability("linux", "change_host_name") do
@@ -62,8 +87,8 @@ module VagrantPlugins
             class ChangeHostName
                 def self.change_host_name(machine, name)
                     machine.communicate.tap do |comm|
-                        if !comm.test("sudo hostname --fqdn | grep '#{name}'")
-                            comm.sudo("hostname #{name.split('.')[0]}")
+                        if !comm.test("sudo hostname -f | grep '#{name}'")
+                            comm.sudo("ros config set hostname #{name}")
                         end
                     end
                 end
