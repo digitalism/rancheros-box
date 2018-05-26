@@ -6,7 +6,7 @@ The RancherOS Vagrant Box should be easy to keep up to date with new RancherOS r
 
 The default SSH Key has been set up for `vagrant ssh` to allow customizing via the the shell script provisioner.
 
-This box does not include VirtualBox Guest Additions. The initial Vagrant box by RancherOS included a possibly usable plugin here: [Packer Build Scripts for RancherOS (2015)](https://github.com/rancher/os-packer/tree/9166642fffd9b2e6ee98098e032a86f2b93e3566)
+This box does not include VirtualBox Guest Additions. The initial [Vagrant box by RancherOS](https://github.com/rancher/os-packer/tree/9166642fffd9b2e6ee98098e032a86f2b93e3566/vagrant) included a plugin which is used here: [vagrant_rancheros_guest_plugin.rb](https://github.com/rancher/vagrant/blob/master/vagrant_rancheros_guest_plugin.rb). The box works fine without this plugin, thus I did not activate it. Additionally the [vagrant-alpine](https://github.com/maier/vagrant-alpine) guest plugin might be helpful, when using the Alpine console, but is not required: `vagrant plugin install vagrant-alpine`
 
 ## How to build
 
