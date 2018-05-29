@@ -2,11 +2,16 @@
 
 RancherOS. A simplified Linux distribution built from containers, for containers.
 
+- RancherOS Vagrant Box
+- Python included for Ansible
+- Alpine as default console
+- Bash as deafult shell
+
 The RancherOS Vagrant Box should be easy to keep up to date with new RancherOS releases. If you do not see the latest release on Vagrant Cloud, just build your own by following the steps below.
 
 The default SSH Key has been set up for `vagrant ssh` to allow customizing via the the shell script provisioner.
 
-This box does not include VirtualBox Guest Additions. The initial [Vagrant box by RancherOS](https://github.com/rancher/os-packer/tree/9166642fffd9b2e6ee98098e032a86f2b93e3566/vagrant) included a plugin which is used here: [vagrant_rancheros_guest_plugin.rb](https://github.com/rancher/vagrant/blob/master/vagrant_rancheros_guest_plugin.rb). The box works fine without this plugin, thus I did not activate it. Additionally the [vagrant-alpine](https://github.com/maier/vagrant-alpine) guest plugin might be helpful, when using the Alpine console, but is not required: `vagrant plugin install vagrant-alpine`
+This box does not include VirtualBox Guest Additions. The initial [Vagrant box by RancherOS](https://github.com/rancher/os-packer/tree/9166642fffd9b2e6ee98098e032a86f2b93e3566/vagrant) included a plugin which is used here: [vagrant_rancheros_guest_plugin.rb](https://github.com/rancher/vagrant/blob/master/vagrant_rancheros_guest_plugin.rb). The box works fine without this plugin, thus I did not activate it. Additionally the [vagrant-alpine](https://github.com/maier/vagrant-alpine) guest plugin might be helpful, when using the Alpine console, but is not required: `vagrant plugin install vagrant-alpine`. (Neither of these plugins currently work  to enable setting config.vm.hostname or config.vm.network on RancherOS).
 
 ## How to build
 
