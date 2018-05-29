@@ -6,6 +6,7 @@ RancherOS. A simplified Linux distribution built from containers, for containers
 - Python included for Ansible
 - Alpine as default console
 - Bash as deafult shell
+- without VirtualBox Guest Additions
 
 The RancherOS Vagrant Box should be easy to keep up to date with new RancherOS releases. If you do not see the latest release on Vagrant Cloud, just build your own by following the steps below.
 
