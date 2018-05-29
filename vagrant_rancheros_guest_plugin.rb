@@ -1,6 +1,36 @@
 require 'ipaddr'
 
 ## Hacking this until we get a real plugin
+# does not really work due to erros when setting hostname or configuring networks
+
+# - Guest OS detection
+# INFO ssh: SSH not ready: #<Vagrant::Errors::GuestNotDetected: The guest operating system of the machine could not be detected!
+# Vagrant requires this knowledge to perform specific tasks such
+# as mounting shared folders and configuring networks. Please add
+# the ability to detect this guest operating system to Vagrant
+# by creating a plugin or reporting a bug.>
+
+# - Change HostName
+#     config.vm.hostname = "rancheros"
+# ==> default: Setting hostname...
+# The following SSH command responded with a non-zero exit status.
+# Vagrant assumes that this means the command failed!
+#
+# sed -ri 's@^(([0-9]{1,3}\.){3}[0-9]{1,3})\s+rancher(\s.*)?$@\1 rancheros-alpine rancheros-alpine@g' /etc/hosts
+#
+# Stderr from the command:
+# sed: can't move '/etc/hostsDiGkdb' to '/etc/hosts': Resource busy
+
+# - ConfigureNetworks
+#     config.vm.network "private_network", ip: "10.0.0.20"
+# ==> default: Configuring and enabling network interfaces...
+# The following SSH command responded with a non-zero exit status.
+# Vagrant assumes that this means the command failed!
+#
+# sed -e '/^#VAGRANT-BEGIN/,$ d' /etc/network/interfaces > /tmp/vagrant-network-interfaces.pre
+#
+# Stderr from the command:
+# sed: /etc/network/interfaces: No such file or directory
 
 # Borrowing from http://stackoverflow.com/questions/1825928/netmask-to-cidr-in-ruby
 IPAddr.class_eval do
