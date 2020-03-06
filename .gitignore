@@ -12,3 +12,4 @@ output-virtualbox-iso/
 # Private files
 production/
 test/
+RancherOS-common

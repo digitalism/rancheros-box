@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 # usage: ./build.sh version , for example: ./build.sh 1.3.0
 set -o errexit
 set -o nounset
